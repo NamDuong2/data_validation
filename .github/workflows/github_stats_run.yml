@@ -1,5 +1,8 @@
 name: run-github-stats-checkpoint
- 
+
+on:
+  workflow_dispatch:
+  
 jobs:
   great_expectations_validation:
     runs-on: ubuntu-latest
