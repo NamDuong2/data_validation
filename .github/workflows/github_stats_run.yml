@@ -20,4 +20,7 @@ jobs:
  
     - name: Run Checkpoint
       run: |
+        replace_webhook=$(printf '%s\n' ${{ secrets.VALIDATION_NOTIFICATION_SLACK_WEBHOOK }} | sed -e 's/[\/&]/\\&/g')
+        sed -i "s/SECRET_SLACK_WEBHOOK/$replace_webhook/g" great_expectations/checkpoints/github_stats_checkpoint.yml
+        
         python great_expectations/checkpoints/run_github_stats_checkpoint.py
