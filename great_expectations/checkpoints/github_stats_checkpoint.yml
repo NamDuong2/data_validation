@@ -2,7 +2,7 @@ name: github_stats_checkpoint
 config_version: 1.0
 template_name:
 module_name: great_expectations.checkpoint
-class_name: SimpleCheckpoint
+class_name: Checkpoint
 run_name_template: '%Y%m%d-%H%M%S-github-stats'
 expectation_suite_name:
 batch_request: {}
@@ -16,6 +16,7 @@ action_list:
   - name: update_data_docs
     action:
       class_name: UpdateDataDocsAction
+      site_names: []
   - name: send_slack_notification_on_validation_result
     action:
       class_name : SlackNotificationAction
